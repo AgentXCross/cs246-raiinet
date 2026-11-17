@@ -1,0 +1,3 @@
+Use brace init whenever possible (int x{5}; for (int i{0}; i < ...))
+Pre-increment ++i
+Never use using namespace std
