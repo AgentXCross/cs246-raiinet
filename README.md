@@ -1,2 +1,1 @@
-# cs246-raiinet
-CS246 Final Project
+# CS246 Object-Oriented Software Developement Final Project: RAII-Net 

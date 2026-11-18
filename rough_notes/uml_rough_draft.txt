@@ -1,0 +1,23 @@
+Game (Game owns a Board and 2 Players)
+Board (Display observes Board)
+Player
+
+Link
+    Enum class LinkType {VirusLink, DataLink}
+
+LinkDecorator (Decorator ABC): LinkBoost is the only persistent boost but I'm adding this in case we want to have more persistent boosts
+    BoostedLink
+
+Display (ABC)
+    GraphicsDisplay
+    TextDisplay
+
+Ability (ABC)
+    LinkBoost
+    Firewall 
+    Download 
+    Polarize 
+    Scan 
+    CustomAbility1
+    CustomAbility2
+    CustomAbility3
