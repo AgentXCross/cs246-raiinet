@@ -2,19 +2,31 @@
 TARGET = raiinet
 
 # Source files
-SRC = main.cc \
-      src/core/controller.cc src/core/controller-impl.cc \
-      src/core/game.cc src/core/game-impl.cc \
-      src/core/board.cc src/core/board-impl.cc \
-      src/core/player.cc src/core/player-impl.cc \
-      src/links/link.cc src/links/link-impl.cc \
-      src/links/linkdecorator.cc src/links/linkdecorator-impl.cc \
-      src/abilities/ability.cc src/abilities/ability-impl.cc \
-      src/display/display.cc src/display/display-impl.cc \
-      src/display/textdisplay.cc src/display/textdisplay-impl.cc \
-      src/display/graphicsdisplay.cc src/display/graphicsdisplay-impl.cc
+SRC = 
 
 # Dependencies
 MODULES = vector sstream string iostream memory array fstream
 
 ARGS =
+
+# ====================================================================== #
+
+COMP = g++-15.2.0
+COMPFLAGS = -fno-elide-constructors -Wall -std=c++20 -fmodules-ts -Werror=vla
+MODULEDIR = gcm.cache
+
+all: $(TARGET)
+
+$(TARGET): $(SRC) $(MODULEDIR)
+	@$(COMP) $(COMPFLAGS) -g $(SRC) -o $@ -lX11
+
+$(MODULEDIR):
+	@$(COMP) $(COMPFLAGS) -c -x c++-system-header $(MODULES)
+
+run: $(TARGET)
+	@./$(TARGET) $(ARGS)
+
+clean:
+	@rm -rf $(TARGET) $(MODULEDIR)
+
+.PHONY: all run clean

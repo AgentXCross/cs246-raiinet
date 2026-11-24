@@ -4,14 +4,14 @@
 ```text
 raiinet/
 ├── src/
-│   ├── abilities/      // Ability and Classes derived from Ability
-│   ├── core/           // Board, Game, Player, Controller
-│   ├── display/        // Display, TextDisplay, GraphicalDisplay
-│   └── links/          // Link, LinkDecorator
-├── docs/               // UML Diagram, Plan of Attack
-├── notes/              // Code Conventions, Checklist, Rough Draft
-├── tests/              // Test Suite
-├── main.cc             // Main program
+│   ├── abilities/              // Ability ABC and Classes derived from Ability
+│   ├── core/                   // Board, GameDisplay ABC, Game, Player, Controller
+│   ├── concrete_displays/      // TextDisplay, GraphicalDisplay
+│   └── links/                  // Link, LinkDecorator ABC
+├── docs/                       // UML Diagram, Plan of Attack
+├── notes/                      // Code Conventions, Checklist, Rough Draft
+├── tests/                      // Test Suite
+├── main.cc                     // Main program
 ├── Makefile
 ```
 
