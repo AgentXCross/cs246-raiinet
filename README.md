@@ -4,9 +4,9 @@
 ```text
 raiinet/
 ├── src/
-│   ├── abilities/              // Ability ABC and Classes derived from Ability
-│   ├── core/                   // Board, GameDisplay ABC, Game, Player, Controller
-│   ├── concrete_displays/      // TextDisplay, GraphicalDisplay
+│   ├── abilities/              // Ability ABC, AbilityContext ABC and Classes derived from Ability
+│   ├── core/                   // Board, Game, GameState, Player, Controller
+│   ├── displays/               // GameDisplay ABC, TextDisplay, GraphicalDisplay
 │   └── links/                  // Link, LinkDecorator ABC
 ├── docs/                       // UML Diagram, Plan of Attack
 ├── notes/                      // Code Conventions, Checklist, Rough Draft
