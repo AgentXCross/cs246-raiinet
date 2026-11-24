@@ -1,7 +1,8 @@
 export module Controller;
 
 import <string>;
-import <game>;
+
+import game;
 
 
 // Controller is the interface the user interacts with 
