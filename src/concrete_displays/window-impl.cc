@@ -7,6 +7,8 @@ import <iostream>;
 import <cstdlib>;
 import <string>;
 
+// copied from graphicsdemo/ in projects directory
+
 using namespace std;
 
 Xwindow::Xwindow(int width, int height) {
