@@ -1,10 +1,10 @@
-#include <variant>
-
 export module abilitycontext;
+
+import <variant>;
 
 import types;
 
-export using AbilityTarget = std::variant<char, Position>;
+export using ability_target = std::variant<char, Position>;
 
 export class ability_context {
   public:
