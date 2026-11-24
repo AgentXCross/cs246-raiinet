@@ -7,8 +7,8 @@ private:
     bool used{false};
 
 public:
-    virtual bool apply(ability_context &ctx, const ability_target &target) = 0;
-    bool used() const;
+    virtual bool apply(AbilityContext &ctx, const AbilityTarget &target) = 0;
+    bool is_used() const;
     void mark_used();
     virtual const char *getName() const = 0;
     virtual ~Ability() = default;
