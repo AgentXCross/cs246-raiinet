@@ -2,13 +2,13 @@ export module link;
 import types;
 
 export class Link {
-  protected:
+protected:
     char id;
     LinkType type;
     int strength;
     Position position;
     bool revealed;
-  public:
+public:
     Link(char id, LinkType type, int strength, Position position);
     virtual ~Link() = default;
 

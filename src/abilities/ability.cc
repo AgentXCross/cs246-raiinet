@@ -3,20 +3,14 @@ export module ability;
 import abilitycontext;
 
 export class Ability {
+private:
+    bool used{false};
 
-    bool used = false;
-
-  public:
-    
+public:
     virtual bool apply(ability_context &ctx, const ability_target &target) = 0;
-    bool isUsed() const {
-        return used;
-    }
-    void markUsed() {
-        used = true;
-    }
+    bool used() const;
+    void mark_used();
     virtual const char *getName() const = 0;
-    
     virtual ~Ability() = default;
-}
+};
 

@@ -1,12 +1,15 @@
 export module linkdecorator;
+
 import <memory>;
+
 import types;
 import link;
 
 export class LinkDecorator : public Link {
-  protected:
+protected:
     std::unique_ptr<Link> component;
-  public:
+
+public:
     explicit LinkDecorator(std::unique_ptr<Link> component);
 
     char get_id() const override;
