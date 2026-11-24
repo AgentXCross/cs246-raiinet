@@ -1,15 +1,15 @@
 export module subject;
 
 import gamedisplay;
-
-import <memory>;
+import types;
+import link;
 
 export class Subject {
 public:
     virtual ~Subject() = default;
 
-    virtual void attach(std::unique_ptr<GameDisplay> display) = 0
-    virtual void notify_displays() = 0
+    virtual void attach(GameDisplay *display) = 0;
+    virtual void notify_displays() = 0;
 
     virtual PlayerID get_current_player() const = 0;
     virtual const Link *get_link_at(int row, int col) const = 0;

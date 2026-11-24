@@ -28,11 +28,11 @@ public:
     // Game logic
     bool move(char link_id, Direction dir);
     bool use_ability(int ability_id, AbilityTarget target);
-    bool is_game_over();
+    bool is_game_over() const;
 
     // Observer pattern
-    void attach(GameDisplay *display);
-    void notify_displays();
+    void attach(GameDisplay *display) override;
+    void notify_displays() override;
 
     // Subject: read-only queries for displays
     PlayerID get_current_player() const override;

@@ -20,7 +20,10 @@ public:
     Player(PlayerID id);
     ~Player();
 
-    bool has_won();
-    bool has_lost();
+    Link *get_link(char id);
+    Ability *get_ability(int id);
+
+    bool has_won() const;
+    bool has_lost() const;
     void download(Link *link);
 };  

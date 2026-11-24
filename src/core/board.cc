@@ -12,8 +12,9 @@ private:
 
 public:
     Board(); // init all positions to nullptr 
-    ~Board() {}
 
     bool move_link(Link *link, Direction dir);
-    Link *link_at(int row, int col); 
+    void place_link(Link *link, Position position);
+    Link *link_at(int row, int col);
+    const Link *link_at(int row, int col) const;
 };
