@@ -22,6 +22,7 @@ public:
 
     Link *get_link(char id);
     Ability *get_ability(int id);
+    std::vector<const Link *> get_links() const;
 
     
     bool has_won() const; // true if downloaded_data == 4

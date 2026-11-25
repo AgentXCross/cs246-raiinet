@@ -20,26 +20,22 @@ export enum class LinkType {
 };
 
 export struct Position {
-private:
+  private:
     int row;
     int col;
 
-public:
-    explicit Position(int row, int col): row{row}, col{col}
-    {
-        if (row < 0 || row > 7 || col < 0 || col > 7) {
-            throw std::out_of_range("Invalid board position");
-        }
-    }
+  public:
+    Position(int row, int col): row{row}, col{col} {}
 
-    int get_row() const { return row; };
-    int get_col() const { return col; };
+    int get_row() const { return row; }
+    int get_col() const { return col; }
 
     bool operator==(const Position &other) const {
         return row == other.row && col == other.col;
     }
 };
 
+export const int abilities_per_player{5};
 
 // Some shared helpers
 export bool is_opponent_link(PlayerID player, char link_id) {

@@ -1,5 +1,7 @@
 export module ability;
 
+import <string>;
+
 import abilitycontext;
 
 export class Ability {

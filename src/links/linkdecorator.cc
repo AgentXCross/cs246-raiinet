@@ -15,7 +15,7 @@ public:
     explicit LinkDecorator(std::unique_ptr<Link> component);
 
     char get_id() const override;
-    LinkType get_visible_type() const;
+    LinkType get_visible_type() const override;
     LinkType get_type() const override;
     int get_strength() const override;
     Position get_position() const override;
@@ -45,7 +45,7 @@ export class StrengthenedLink : public LinkDecorator {
 export class FireproofLink : public LinkDecorator {
   public:
     explicit FireproofLink(std::unique_ptr<Link> component);
-    int is_fireproof() const override;
+    bool is_fireproof() const override;
 };
 
 export class DisguisedLink : public LinkDecorator {

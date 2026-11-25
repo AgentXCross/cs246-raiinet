@@ -5,6 +5,7 @@ import <string>;
 
 import board;
 import player;
+import link;
 import gamedisplay;
 import types;
 import subject;
@@ -51,6 +52,7 @@ public:
     // Subject: read-only queries for displays
     PlayerID get_current_player() const override;
     const Link *get_link_at(int row, int col) const override;
+    std::vector<const Link *> get_player_links(PlayerID id) const override;
 
     int get_downloaded_data(PlayerID id) const override;
     int get_downloaded_viruses(PlayerID id) const override;
