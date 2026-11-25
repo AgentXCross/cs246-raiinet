@@ -17,7 +17,7 @@ public:
     virtual int get_downloaded_data(PlayerID id) const = 0;
     virtual int get_downloaded_viruses(PlayerID id) const = 0;
 
-    virtual const char *get_ability_name(PlayerID id, int ability_id) const = 0;
+    virtual std::string get_ability_name(PlayerID id, int ability_id) const = 0;
     virtual bool is_ability_used(PlayerID id, int ability_id) const = 0;
     virtual bool is_ability_used_this_turn() const = 0;
 };

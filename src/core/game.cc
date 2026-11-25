@@ -1,6 +1,7 @@
 export module game;
 
 import <vector>;
+import <string>;
 
 import board;
 import player;
@@ -13,12 +14,15 @@ import abilitycontext;
 export class Game : public Subject, public AbilityContext {
 private:
     Board board;
+
     Player player_1;
     Player player_2;
     PlayerID current_player{PlayerID::P1};
+
     bool ability_used_this_turn{false};
     std::vector<GameDisplay *> displays;
 
+    // Flips current player, called at end of move
     void next_turn();
 
 public:
@@ -26,8 +30,18 @@ public:
     ~Game() override = default;
 
     // Game logic
+
+    // Validate and execute movement, return true if valid move
+    // Handles any downloads if they occur, checks for game completion, advances turn
     bool move(char link_id, Direction dir);
+
+    // Applies the players specified ability to the target 
+    // Ensures the ability is available and no ability has been used this turn
+    // Marks the ability used, checks for game completion
+    // Returns true if successful
     bool use_ability(int ability_id, AbilityTarget target);
+
+    // Game is over if either player has downloaded 4 viruses or 4 data links
     bool is_game_over() const;
 
     // Observer pattern
@@ -41,7 +55,7 @@ public:
     int get_downloaded_data(PlayerID id) const override;
     int get_downloaded_viruses(PlayerID id) const override;
 
-    const char *get_ability_name(PlayerID id, int ability_id) const override;
+    std::string get_ability_name(PlayerID id, int ability_id) const override;
     bool is_ability_used(PlayerID id, int ability_id) const override;
     bool is_ability_used_this_turn() const override;
 

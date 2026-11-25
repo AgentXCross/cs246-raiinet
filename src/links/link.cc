@@ -13,10 +13,12 @@ public:
     virtual ~Link() = default;
 
     virtual char get_id() const;
+    virtual LinkType get_visible_type() const;
     virtual LinkType get_type() const;
     virtual int get_strength() const;
     virtual Position get_position() const;
     virtual bool is_revealed() const;
+    virtual bool is_fireproof() const;
 
     virtual int movement_distance() const;
     virtual void move_to(Position p);

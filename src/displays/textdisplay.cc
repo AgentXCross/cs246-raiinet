@@ -11,10 +11,13 @@ export class TextDisplay : public GameDisplay {
 protected:
     Subject *game;
     std::ostream &out;
-    void print_player(std::ostream &os, PlayerID who, PlayerID viewer) const;
     
 public:
     TextDisplay(Subject *game, std::ostream &out);
+
+    // Pull data from the Subject
     void notify() override;
+
+    // Writes the current board and player information to the stream.
     friend std::ostream &operator<<(std::ostream &os, const TextDisplay &td);
 };

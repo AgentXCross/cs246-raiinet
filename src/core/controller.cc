@@ -18,9 +18,15 @@ export class Controller {
 private:
     Game &game;
 
+    // Reads in a command from standard input
     void execute_command(const std::string &command);
+
+    // Reads in commands from an input file
     void execute_sequence(const std::string &file);
 
 public:
+    // Main game loop
+    // If the user chooses to input using a text file, calls execute_sequence
+    // Otherwise, reads in commands one at a time, calls execute_command each time
     void run();
 };

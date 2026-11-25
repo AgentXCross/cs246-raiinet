@@ -1,15 +1,18 @@
-Code Conventions (Feel free to add anything)
+Code Conventions
 
-Use brace initialization whenever possible, prefer pre-increment
+Use brace initialization whenever possible
+Prefer pre-increment
+Ex:
     int x{5}
     for (int i{0}; i < size; ++i)
 
 Never use: using namespace std
-
-snake_case is used for everything with the exception of class names that use PascalCase
-
+snake_case is used for everything with the exception of class/struct names that use PascalCase
 STL containers and smart pointers only. Only use raw pointers for non-owning fields.
 
+Only throw errors for mistakes that occur from your code. Don't throw when the user
+enters invalid inputs. Most action functions return bool so we can return false and loop
+back and ask the user for the proper input.
 
 Notes/Checklist
 
