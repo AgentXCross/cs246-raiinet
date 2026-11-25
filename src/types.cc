@@ -21,17 +21,21 @@ export enum class LinkType {
 
 export struct Position {
 private:
-    int x;
-    int y;
+    int row;
+    int col;
 
 public:
-    explicit Position(int x, int y): x{x}, y{y}
+    explicit Position(int row, int col): row{row}, col{col}
     {
-        if (x < 0 || x > 7 || y < 0 || y > 7) {
+        if (row < 0 || row > 7 || col < 0 || col > 7) {
             throw std::out_of_range("Invalid board position");
         }
     }
 
-    int get_x() const { return x; };
-    int get_y() const { return y; };
+    int get_row() const { return row; };
+    int get_col() const { return col; };
+
+    bool operator==(const Position &other) const {
+        return row == other.row && col == other.col;
+    }
 };
