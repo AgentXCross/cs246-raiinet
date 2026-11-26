@@ -108,7 +108,7 @@ bool Board::move_link(
         return true;
     }
 
-    // ================= Port Checks ======================
+    // ================= Ports ======================
 
     Position new_pos{new_row, new_col};
     for (const Position &port : ports_of(owner)) {
@@ -124,6 +124,24 @@ bool Board::move_link(
         }
     }
 
+    // ================= Occupancy Validation ======================
+
+    Link *occupant{link_at(new_row, new_col)}; // Does a link currently occupy the new pos
+    PlayerID occupant_owner{};
+
+    if (occupant != nullptr) {
+        if (!owner_of(occupant->get_id(), occupant_owner)) {
+            return false;
+        }
+
+        // Cannot move onto a friendly link.
+        if (occupant_owner == owner) {
+            return false;
+        }
+    }
+
+    // ================= Firewall ======================
+
     // When entering an enemy firewall, the link is revealed unless its fireproof
     if (has_enemy_firewall(new_pos, owner) && !(link->is_fireproof())) {
         link->reveal();
@@ -137,19 +155,8 @@ bool Board::move_link(
         }
     }
 
-    Link *occupant{link_at(new_row, new_col)}; // Does a link currently occupy the new pos
+    // ================= Battle ======================
     if (occupant != nullptr) {
-        PlayerID occupant_owner{};
-
-        if (!owner_of(occupant->get_id(), occupant_owner)) {
-            return false;
-        }
-
-        // Cannot move onto your own link
-        if (occupant_owner == owner) {
-            return false;
-        }
-
         // Both links are revealed upon a battle
         link->reveal();
         occupant->reveal();
@@ -174,6 +181,8 @@ bool Board::move_link(
         downloaded = occupant;
         downloader = owner;
     }
+
+    // ================= Final Update ======================
 
     grid[index(old_pos)] = nullptr;
     grid[index(new_pos)] = link;
