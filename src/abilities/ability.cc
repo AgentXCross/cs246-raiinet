@@ -23,3 +23,53 @@ public:
 
     virtual ~Ability() = default;
 };
+
+
+// Concrete abilities
+export class LinkBoost : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Firewall : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Download : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Scan : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Polarize : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Shield : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Disguise : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
+
+export class Fireproof : public Ability {
+public:
+    bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
+    std::string get_name() const override;
+};
