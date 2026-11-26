@@ -4,6 +4,7 @@ import <vector>;
 import <cstdlib>;
 import <ctime>;
 import <ifstream>;
+import <exception>;
 
 import game;
 import controller;
@@ -88,9 +89,23 @@ int main(int argc, char *argv[]) {
     }
 
     // ================= Game Construction and Game Run =============
-
-    Game game{p1_links, p2_links, ability1, ability2};
+    try {
+        Game game{p1_links, p2_links, ability1, ability2};
+    } catch (std::exception &e) {
+        std::cerr << e.what() << "\n";
+        std::cerr << "Construction failed. Validations were not done correctly.\n";
+        return 1;
+    }
 
     Controller controller{game};
-    controller.run();
+
+    try {
+        controller.run();
+    } catch (std::exception &e) {
+        std::cerr << e.what() << "\n";
+        std::cerr << "This should not have happened as run() should never throw. Check Implementation.\n"
+        return 1;
+    }
+
+    return 0;
 }

@@ -12,6 +12,7 @@ raiinet/
 ├── docs/                       // UML Diagram, Plan of Attack
 ├── notes/                      // Code Conventions, Checklist, Rough Draft
 ├── tests/                      // Test Suite
+├── setup.cc                    // Main program setup functionality
 ├── main.cc                     // Main program
 └── Makefile
 ```

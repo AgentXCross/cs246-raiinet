@@ -2,6 +2,7 @@ export module player;
 
 import <memory>;
 import <vector>;
+import <stdexcept>;
 
 import types;
 import link;
@@ -13,8 +14,12 @@ private:
     PlayerID id;
     std::vector<std::unique_ptr<Link>> links;
     std::vector<std::unique_ptr<Ability>> abilities;
+    
     int downloaded_data{0};
     int downloaded_viruses{0};
+
+    static const int num_links{8};
+    static const int num_abilities{5};
 
 public:
     Player(
