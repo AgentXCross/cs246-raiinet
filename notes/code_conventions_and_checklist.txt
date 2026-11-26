@@ -10,7 +10,7 @@ Never use: using namespace std
 snake_case is used for everything with the exception of class/struct names that use PascalCase
 STL containers and smart pointers only. Only use raw pointers for non-owning fields.
 
-Only throw errors for mistakes that occur from your code. Don't throw when the user
+Only throw errors for mistakes that could occur from mistakes in your code. Don't throw when the user
 enters invalid inputs. Most action functions return bool so we can return false and loop
 back and ask the user for the proper input.
 
@@ -19,25 +19,9 @@ Notes/Checklist
 DD1:
     uml.pdf 
     plan.pdf 
-        Implementation plan, estimated dates
-        division of responsibilities
+        Implementation plan, Estimated dates
+        Division of Responsibilities
         Answer design questions
-            1. In this project, we ask you to implement a single display that maintains the same point of view as turns switch between
-            player 1 and player 2. How would you change your code to instead have two displays, one of which is from player 1’s
-            point of view, and the other of which is player 2’s point of view?
-
-            2. How can you design a general framework that makes adding abilities easy? To demonstrate your thought process for
-            this question, you are required to add in three new abilities to your final game. One of these may be similar to one of
-            the already-present abilities, and the other two should introduce some novel, challenging mechanic. You are required
-            to actually implement these.
-
-            3. One could conceivably extend the game of RAIInet to be a four-player game by making the board a “plus” (+) shape
-            (formed by the union of two 10x8 rectangles) and allowing links to escape off the edge belonging to the opponent
-            directly adjacent to them. Upon being eliminated by downloading four viruses, all links and firewall controlled by that
-            player would be removed, and their server ports would become normal squares. What changes could you make in your
-            code to handle this change to the game? Would it be possible to have this mode in addition to the two-player mode with
-            minimal additional work?
-
 
 DD2:
     uml-final.pdf

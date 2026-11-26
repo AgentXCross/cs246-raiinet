@@ -1,6 +1,7 @@
 export module types;
 
 import <stdexcept>;
+import <iostream>;
 
 export enum class PlayerID {
     P1,
@@ -20,15 +21,18 @@ export enum class LinkType {
 };
 
 export struct Position {
-  private:
+private:
     int row;
     int col;
 
-  public:
+public:
     Position(int row, int col): row{row}, col{col} {}
 
     int get_row() const { return row; }
     int get_col() const { return col; }
+
+    void set_row(int new_row) { row = new_row; }
+    void set_col(int new_col) { col = new_col; }
 
     bool operator==(const Position &other) const {
         return row == other.row && col == other.col;
