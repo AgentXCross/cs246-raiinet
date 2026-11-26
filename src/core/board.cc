@@ -20,11 +20,11 @@ private:
     std::vector<Position> p1_firewalls{};
     std::vector<Position> p2_firewalls{};
 
-    int index(Position pos) const;
-    const std::vector<Position> &ports_of(PlayerID player) const;
+    int index(Position pos) const; // Position to flat index
+    const std::vector<Position> &ports_of(PlayerID player_id) const;
 
     // Returns true if the position has a firewall not owned by player
-    bool has_enemy_firewall(Position pos, PlayerID player) const;
+    bool has_enemy_firewall(Position pos, PlayerID player_id) const;
 
 public:
     Board();
@@ -35,6 +35,7 @@ public:
     // Returns false (and changes nothing) if the move is illegal.
     // On success, downloaded points to the link that was downloaded during the move
     // (nullptr if none) and downloader is the player who downloaded it.
+    // This function has no side effects if it returns false
     bool move_link(
         Link *link, Direction dir, Link *&downloaded, PlayerID &downloader
     );

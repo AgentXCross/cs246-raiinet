@@ -1,0 +1,5 @@
+This file contains assumptions made in this project that were ambiguous or not specified 
+in the project specification
+
+1. A link with Link Boost jumps over intermediate squares without interacting with them. 
+Therefore, jumping over an enemy firewall does not trigger its effects. 
