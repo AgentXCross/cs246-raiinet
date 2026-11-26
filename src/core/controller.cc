@@ -22,6 +22,23 @@ private:
     bool running{true};
 
     // Reads in a command from standard input, validates input
+    // The following checks do NOT need to be checked again after execute_command
+    // For move:
+    //      <a> is guaranteed to be a valid link that the current player owns
+    //      <dir> is guaranteed to be NORTH, EAST, SOUTH, WEST
+    // For ability:
+    //      <N> is guaranteed to be between 1 and 5
+    //      The selected ability has not previously been used
+    //      No ability has been used during the current turn
+    //      The target has the correct type for the selected ability (a Positon or Link)
+    // 
+    //      For link-targeting abilities:
+    //          The target is a valid link ID (a-h or A-H)
+    //          LinkBoost, Shield, Strength, and Disguise target own links
+    //          Scan and Download target opponent links
+    //          Polarize can target either player's links
+    //      For Firewall:
+    //          The target is a Position with row and column in [0, 7].
     void execute_command(const std::string &command);
 
     // Reads in commands from an input file
