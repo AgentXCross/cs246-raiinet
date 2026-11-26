@@ -17,13 +17,16 @@ private:
     int downloaded_viruses{0};
 
 public:
-    Player(PlayerID id);
+    Player(
+        PlayerID id,
+        const std::vector<LinkSetup> &link_setup,
+        const std::string &ability_setup
+    );
     ~Player();
 
     Link *get_link(char id);
     Ability *get_ability(int id);
     std::vector<const Link *> get_links() const;
-
     
     bool has_won() const; // true if downloaded_data == 4
     bool has_lost() const; // true if downloaded_viruses == 4

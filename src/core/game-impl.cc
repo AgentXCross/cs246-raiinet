@@ -1,7 +1,12 @@
 module game;
 
 
-Game::Game(): 
+Game::Game(
+    const std::vector<LinkSetup> &p1_links,
+    const std::vector<LinkSetup> &p2_links,
+    const std::string &ability1,
+    const std::string &ability2
+): 
     board{Board()}, player_1{PlayerID::P1}, player_2{PlayerID::P2}
 {
     // set the link positions, players have already constructed them

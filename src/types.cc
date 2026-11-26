@@ -20,6 +20,11 @@ export enum class LinkType {
     VIRUS
 };
 
+export struct LinkSetup { // struct for command line inputs, keep unencapsulated
+    LinkType type;
+    int strength;
+};
+
 export struct Position {
 private:
     int row;

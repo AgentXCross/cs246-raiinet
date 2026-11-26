@@ -27,7 +27,13 @@ private:
     void next_turn();
 
 public:
-    Game();
+    Game(
+        const std::vector<LinkSetup> &p1_links,
+        const std::vector<LinkSetup> &p2_links,
+        const std::string &ability1,
+        const std::string &ability2
+    );
+    
     ~Game() override = default;
 
     // Game logic
