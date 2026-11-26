@@ -51,6 +51,9 @@ public:
     // Game is over if either player has downloaded 4 viruses or 4 data links
     bool is_game_over() const;
 
+    // Make sure this function is only called when is_game_over() == true
+    PlayerID winner() const;
+
     // Observer pattern
     void attach(GameDisplay *display) override;
     void notify_displays() override;

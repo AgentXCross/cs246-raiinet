@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
         Game game{p1_links, p2_links, ability1, ability2};
     } catch (std::exception &e) {
         std::cerr << e.what() << "\n";
-        std::cerr << "Construction failed. Validations were not done correctly.\n";
+        std::cerr << "This should not have happened. Implementation is incorrect.\n"
         return 1;
     }
 

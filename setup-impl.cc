@@ -81,7 +81,8 @@ bool make_link_setup(const std::string &filename, std::vector<LinkSetup> &links)
 }
 
 bool valid_ability_setup(const std::string &setup) {
-    if (setup.size() != 5) return false;
+    const int num_abilities{5};
+    if (setup.size() != num_abilities) return false;
 
     const std::string allowed{"LFDSPHIR"};
     const int max_ability_count{2};

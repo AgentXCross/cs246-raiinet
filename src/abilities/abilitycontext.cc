@@ -9,6 +9,8 @@ export using AbilityTarget = std::variant<char, Position>;
 
 // Purpose of this ABC is to allow abilities to access Game without 
 // depending directly on Game. This was required to break a dependency loop.
+
+// IMPORTANT: The AbilityTarget is already guaranteed to be the correct type
 export class AbilityContext {
 public:
     // Original abilities

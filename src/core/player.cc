@@ -2,7 +2,7 @@ export module player;
 
 import <memory>;
 import <vector>;
-import <stdexcept>;
+import <string>;
 
 import types;
 import link;
@@ -30,7 +30,11 @@ public:
     ~Player();
 
     Link *get_link(char id);
+
     Ability *get_ability(int id);
+    const Ability *get_ability(int id) const;
+
+    std::vector<Link *> get_links();
     std::vector<const Link *> get_links() const;
     
     bool has_won() const; // true if downloaded_data == 4
@@ -38,4 +42,7 @@ public:
 
     // Records a downloaded link by incrementing one of the downloaded fields
     void download(Link *link);
+
+    int get_downloaded_data() const;
+    int get_downloaded_viruses() const;
 };  
