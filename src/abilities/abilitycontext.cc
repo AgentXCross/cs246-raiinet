@@ -11,10 +11,17 @@ export using AbilityTarget = std::variant<char, Position>;
 // depending directly on Game. This was required to break a dependency loop.
 export class AbilityContext {
 public:
+    // Original abilities
     virtual bool boost_link(AbilityTarget target) = 0;
     virtual bool place_firewall(AbilityTarget target) = 0;
     virtual bool download_opponent_link(AbilityTarget target) = 0;
     virtual bool scan_link(AbilityTarget target) = 0;
     virtual bool polarize_link(AbilityTarget target) = 0;
+
+    // Custom abilities
+    virtual bool shield_link(AbilityTarget target) = 0;
+    virtual bool disguise_link(AbilityTarget target) = 0;
+    virtual bool fireproof_link(AbilityTarget target) = 0;
+
     virtual ~AbilityContext() = default;
 };
