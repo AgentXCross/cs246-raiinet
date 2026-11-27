@@ -26,6 +26,8 @@ private:
     // Flips current player, called at end of move
     void next_turn();
 
+    bool is_link_on_board(const Link *link) const;
+    Link *get_link_by_id(char id);
 public:
     Game(
         const std::vector<LinkSetup> &p1_links,
@@ -54,7 +56,7 @@ public:
     // Make sure this function is only called when is_game_over() == true
     PlayerID winner() const;
 
-    // Observer pattern
+    // Observer Design Pattern
     void attach(GameDisplay *display) override;
     void notify_displays() override;
 

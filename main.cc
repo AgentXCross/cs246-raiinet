@@ -3,7 +3,7 @@ import <string>;
 import <vector>;
 import <cstdlib>;
 import <ctime>;
-import <ifstream>;
+import <fstream>;
 import <exception>;
 
 import game;
@@ -91,19 +91,13 @@ int main(int argc, char *argv[]) {
     // ================= Game Construction and Game Run =============
     try {
         Game game{p1_links, p2_links, ability1, ability2};
-    } catch (std::exception &e) {
-        std::cerr << e.what() << "\n";
-        std::cerr << "This should not have happened. Implementation is incorrect.\n"
-        return 1;
-    }
+        Controller controller{game};
 
-    Controller controller{game};
-
-    try {
         controller.run();
-    } catch (std::exception &e) {
+
+    } catch (const std::exception &e) {
         std::cerr << e.what() << "\n";
-        std::cerr << "This should not have happened as run() should never throw. Check Implementation.\n"
+        std::cerr << "Unexpected error. Check implementation.\n";
         return 1;
     }
 

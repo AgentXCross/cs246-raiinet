@@ -95,7 +95,7 @@ LinkType DisguisedLink::get_visible_type() const {
         return component->get_visible_type();
     }
 
-    return component->get_visible_type() == LinkType::DATA
+    return component->get_type() == LinkType::DATA
         ? LinkType::VIRUS
         : LinkType::DATA;
 }
