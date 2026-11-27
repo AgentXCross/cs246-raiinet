@@ -76,4 +76,8 @@ public:
     bool download_opponent_link(AbilityTarget target) override;
     bool scan_link(AbilityTarget target) override;
     bool polarize_link(AbilityTarget target) override;
+
+    bool shield_link(AbilityTarget target) override;
+    bool disguise_link(AbilityTarget target) override;
+    bool strengthen_link(AbilityTarget target) override;
 };

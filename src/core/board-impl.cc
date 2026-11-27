@@ -142,8 +142,8 @@ bool Board::move_link(
 
     // ================= Firewall ======================
 
-    // When entering an enemy firewall, the link is revealed unless its fireproof
-    if (has_enemy_firewall(new_pos, owner) && !(link->is_fireproof())) {
+    // When entering an enemy firewall
+    if (has_enemy_firewall(new_pos, owner)) {
         link->reveal();
 
         // If the link is a virus, the owner instantly downloads it
@@ -163,8 +163,9 @@ bool Board::move_link(
 
         // Attacker loses
         if (link->get_strength() < occupant->get_strength()) {
-            if (link->absorb_defeat()) {
-                return true; // shield consumed, no movement
+            if (link->is_shielded()) {
+                link->consume_shield(); // shield consumed, no movement
+                return true;
             }
 
             remove_link(link);
@@ -174,7 +175,8 @@ bool Board::move_link(
         } 
 
         // Attacker wins (also wins on strength ties)
-        if (occupant->absorb_defeat()) {
+        if (occupant->is_shielded()) {
+            occupant->consume_shield();
             return true; // shield consumed, no movement
         }
         remove_link(occupant);
