@@ -106,3 +106,29 @@ PlayerID Game::winner() const {
     return PlayerID::P2;
 }
 
+bool Game::boost_link(AbilityTarget target) {
+
+}
+bool Game::place_firewall(AbilityTarget target) {
+
+}
+bool Game::download_opponent_link(AbilityTarget target) {
+
+}
+bool Game::scan_link(AbilityTarget target) {
+
+}
+bool Game::polarize_link(AbilityTarget target) {
+
+}
+
+bool Game::shield_link(AbilityTarget target) {
+
+}
+bool Game::disguise_link(AbilityTarget target) {
+
+}
+bool Game::strengthen_link(AbilityTarget target) {
+
+}
+
