@@ -1,5 +1,6 @@
 module board;
 
+import <iostream>;
 
 Board::Board():
     grid{std::vector<Link *>(64, nullptr)} {}

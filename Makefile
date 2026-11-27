@@ -5,7 +5,7 @@ TARGET = raiinet
 SRC = 
 
 # Dependencies
-MODULES = vector sstream string iostream memory array fstream cstdlib ctime
+MODULES = vector sstream string iostream memory array fstream cstdlib ctime exception stdexcept
 
 ARGS =
 
