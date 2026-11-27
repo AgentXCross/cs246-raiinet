@@ -41,8 +41,15 @@ public:
     bool has_lost() const; // true if downloaded_viruses == 4
 
     // Records a downloaded link by incrementing one of the downloaded fields
+    // Does NOT remove the link from the board
     void download(Link *link);
 
     int get_downloaded_data() const;
     int get_downloaded_viruses() const;
+
+    // Link decorations, these functions are need by Board (which holds raw pointers to links)
+    Link *boost_link(char id);
+    Link *shield_link(char id);
+    Link *disguise_link(char id);
+    Link *strengthen_link(char id);
 };  

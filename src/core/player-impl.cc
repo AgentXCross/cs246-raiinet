@@ -2,6 +2,8 @@ module player;
 
 import <stdexcept>;
 
+import linkdecorator;
+
 
 Player::~Player() = default;
 
@@ -152,3 +154,49 @@ int Player::get_downloaded_data() const {
 int Player::get_downloaded_viruses() const {
     return downloaded_viruses;
 }
+
+// Decoration
+Link *Player::boost_link(char id) {
+    for (auto &link : links) {
+        if (link->get_id() == id) {
+            link = std::make_unique<BoostedLink>(std::move(link));
+            return link.get();
+        }
+    }
+
+    return nullptr;
+}
+
+Link *Player::shield_link(char id) {
+    for (auto &link : links) {
+        if (link->get_id() == id) {
+            link = std::make_unique<ShieldedLink>(std::move(link));
+            return link.get();
+        }
+    }
+
+    return nullptr;
+}
+
+Link *Player::disguise_link(char id) {
+    for (auto &link : links) {
+        if (link->get_id() == id) {
+            link = std::make_unique<DisguisedLink>(std::move(link));
+            return link.get();
+        }
+    }
+
+    return nullptr;
+}
+
+Link *Player::strengthen_link(char id) {
+    for (auto &link : links) {
+        if (link->get_id() == id) {
+            link = std::make_unique<StrengthenedLink>(std::move(link));
+            return link.get();
+        }
+    }
+
+    return nullptr;
+}
+

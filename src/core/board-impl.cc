@@ -211,7 +211,8 @@ void Board::place_link(Link *link, Position position) {
 
     Position old_pos{link->get_position()};
     if (in_bounds(old_pos.get_row(), old_pos.get_col()) &&
-        grid[index(old_pos)] == link) {
+        grid[index(old_pos)] == link) 
+    {
         grid[index(old_pos)] = nullptr;
     }
     grid[index(position)] = link;
@@ -221,16 +222,31 @@ void Board::place_link(Link *link, Position position) {
 bool Board::place_firewall(Position pos, PlayerID owner) {
     int row{pos.get_row()};
     int col{pos.get_col()};
-    if (!in_bounds(row, col) || link_at(row, col) != nullptr ||
-        is_server_port(row, col)) {
+    if (!in_bounds(row, col)) {
+        std::cerr << "Position is out of bounds\n";
+        return false;
+    }
+
+    if (link_at(row, col) != nullptr) {
+        std::cerr << "Cannot place a firewall on an occupied square\n";
+        return false;
+    }
+
+    if (is_server_port(row, col)) {
+        std::cerr << "Cannot place a firewall on a server port\n";
         return false;
     }
 
     PlayerID existing_owner;
-    if (firewall_at(row, col, existing_owner)) return false;
+    if (firewall_at(row, col, existing_owner)) {
+        std::cerr << "A firewall already exists at this position\n";
+        return false;
+    }
+
     std::vector<Position> &firewalls{
         owner == PlayerID::P1 ? p1_firewalls : p2_firewalls
     };
+    
     firewalls.push_back(pos);
     return true;
 }
