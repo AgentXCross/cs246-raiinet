@@ -73,7 +73,7 @@ Player::Player(
                 abilities[i] = std::make_unique<Disguise>();
                 break;
             case 'R':
-                abilities[i] = std::make_unique<Fireproof>();
+                abilities[i] = std::make_unique<Strengthen>();
                 break;
             default:
                 throw std::invalid_argument("Invalid ability, error in main or controller");

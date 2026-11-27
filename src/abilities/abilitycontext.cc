@@ -23,7 +23,7 @@ public:
     // Custom abilities
     virtual bool shield_link(AbilityTarget target) = 0;
     virtual bool disguise_link(AbilityTarget target) = 0;
-    virtual bool fireproof_link(AbilityTarget target) = 0;
+    virtual bool strengthen_link(AbilityTarget target) = 0;
 
     virtual ~AbilityContext() = default;
 };

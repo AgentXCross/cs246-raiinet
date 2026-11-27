@@ -68,7 +68,7 @@ public:
     std::string get_name() const override;
 };
 
-export class Fireproof : public Ability {
+export class Strengthen : public Ability {
 public:
     bool apply(AbilityContext &ctx, const AbilityTarget &target) override;
     std::string get_name() const override;

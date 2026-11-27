@@ -20,7 +20,7 @@ Ability Letters:
     P: Polarize
     H: Shield
     I: Disguise
-    R: Fireproof
+    R: Strengthen
 
 If the user enters arguments though the command line we need to do the following checks:
     Links: Must have all of D1-D4 and V1-V4 in any order
