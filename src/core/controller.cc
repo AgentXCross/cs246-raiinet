@@ -25,7 +25,7 @@ private:
     // The following checks do NOT need to be checked again after execute_command
     // For move:
     //      <a> is guaranteed to be a valid link that the current player owns
-    //      <dir> is guaranteed to be NORTH, EAST, SOUTH, WEST
+    //      <dir> is guaranteed to be up, down, left, right
     // For ability:
     //      <N> is guaranteed to be between 1 and 5
     //      The selected ability has not previously been used
@@ -46,7 +46,7 @@ private:
 
     // input helpers
     bool valid_link(char link) const; // a-h, A-H
-    bool valid_dir(const std::string &dir) const; // NORTH, EAST, SOUTH, WEST
+    bool valid_dir(const std::string &dir) const; // up, down, left, right
     bool valid_ability_id(int id) const; // 1-5
 
     Direction map_dir(std::string dir_str) const; // maps string to Direction

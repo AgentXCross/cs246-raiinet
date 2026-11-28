@@ -14,7 +14,7 @@ bool Controller::valid_link(char link) const {
 }
 
 bool Controller::valid_dir(const std::string &dir) const {
-    return (dir == "NORTH" || dir == "EAST" || dir == "SOUTH" || dir == "WEST");
+    return dir == "up" || dir == "down" || dir == "left" || dir == "right";
 }
 
 bool Controller::valid_ability_id(int id) const {
@@ -22,12 +22,11 @@ bool Controller::valid_ability_id(int id) const {
 }
 
 Direction Controller::map_dir(std::string dir_str) const {
-    if (dir_str == "NORTH") return Direction::NORTH;
-    else if (dir_str == "EAST") return Direction::EAST;
-    else if (dir_str == "SOUTH") return Direction::SOUTH;
-    else return Direction::WEST;
+    if (dir_str == "up") return Direction::NORTH;
+    if (dir_str == "down") return Direction::SOUTH;
+    if (dir_str == "left") return Direction::WEST;
+    return Direction::EAST;
 }
-
 
 Controller::Controller(Game &game): game{game} {}
 
